@@ -1,23 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+
+import { getSpaceships } from "./fauna/queries";
 
 function App() {
+  const [spaceships, setSpaceships] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button
+        onClick={async () => {
+          const { data } = await getSpaceships();
+          setSpaceships(data);
+        }}
+      >
+        Click for Spaceships
+      </button>
+      {spaceships.map((s, i) => {
+        return <div key={i}>{s.data.name}</div>;
+      })}
     </div>
   );
 }
