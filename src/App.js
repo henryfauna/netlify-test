@@ -13,6 +13,7 @@ function App() {
           const { data } = await getSpaceships();
           setSpaceships(data);
         }}
+        id="spaceships-button"
       >
         Click for Spaceships
       </button>
