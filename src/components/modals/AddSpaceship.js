@@ -3,14 +3,15 @@ import { useState } from "react";
 import ButtonPrimary from "../common/ButtonPrimary";
 import ButtonSecondary from "../common/ButtonSecondary";
 
-import { addPilot } from "../../fauna/queries";
+import { addSpaceship } from "../../fauna/queries";
 
-const AddPilot = ({ onClose }) => {
+const AddSpaceship = ({ onClose }) => {
   const [name, setName] = useState();
+  const [pilot, setPilot] = useState();
 
-  const handleAddPilot = async () => {
-    if (!name) return;
-    await addPilot(name);
+  const handleAddSpaceship = async () => {
+    if (!name || !pilot) return;
+    await addSpaceship(name, pilot);
     onClose();
   };
 
@@ -40,16 +41,24 @@ const AddPilot = ({ onClose }) => {
                 class="text-lg leading-6 font-medium text-gray-900"
                 id="modal-title"
               >
-                Add Pilot
+                Add Spaceship
               </h3>
               <div class="mt-2">
                 <form class="w-full">
                   <input
                     placeholder="Name"
-                    class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full my-2 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
                     type="text"
                     onChange={(e) => {
                       setName(e.target.value);
+                    }}
+                  />
+                  <input
+                    placeholder="Pilot"
+                    class="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full my-2 py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500"
+                    type="text"
+                    onChange={(e) => {
+                      setPilot(e.target.value);
                     }}
                   />
                 </form>
@@ -57,7 +66,7 @@ const AddPilot = ({ onClose }) => {
             </div>
           </div>
           <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
-            <ButtonPrimary text="Add" onClick={() => handleAddPilot()} />
+            <ButtonPrimary text="Add" onClick={() => handleAddSpaceship()} />
             <ButtonSecondary text="Cancel" onClick={() => onClose()} />
           </div>
         </div>
@@ -66,4 +75,4 @@ const AddPilot = ({ onClose }) => {
   );
 };
 
-export default AddPilot;
+export default AddSpaceship;
