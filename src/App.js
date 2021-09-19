@@ -1,27 +1,15 @@
 import "./App.css";
-import { useState } from "react";
 
-import { getSpaceships } from "./fauna/queries";
+import Pilots from "./components/Pilots";
+import Spaceships from "./components/Spaceships";
 
-function App() {
-  const [spaceships, setSpaceships] = useState([]);
-
+const App = () => {
   return (
-    <div className="App">
-      <button
-        onClick={async () => {
-          const { data } = await getSpaceships();
-          setSpaceships(data);
-        }}
-        id="spaceships-button"
-      >
-        Click for Spaceships
-      </button>
-      {spaceships.map((s, i) => {
-        return <div key={i}>{s.data.name}</div>;
-      })}
+    <div class="flex flex-col md:flex-row p-12 h-screen bg-purple-50 divide-x">
+      <Pilots />
+      <Spaceships />
     </div>
   );
-}
+};
 
 export default App;
