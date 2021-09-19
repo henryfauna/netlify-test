@@ -5,7 +5,7 @@ import Spaceships from "./components/Spaceships";
 
 const App = () => {
   return (
-    <div class="flex flex-col md:flex-row p-12 h-screen bg-purple-50 divide-x">
+    <div class="flex flex-col md:flex-row p-12 h-screen bg-purple-50 md:divide-x max">
       <Pilots />
       <Spaceships />
     </div>
