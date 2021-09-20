@@ -2,7 +2,7 @@ const Button = ({ text, onClick }) => {
   return (
     <button
       onClick={onClick}
-      class="bg-purple-700 hover:bg-purple-500 text-sm text-white font-bold py-2 px-4 rounded-md"
+      class="hover:text-white hover:bg-purple-700 text-sm text-purple-700 font-bold py-1 px-4 rounded-full"
     >
       {text}
     </button>

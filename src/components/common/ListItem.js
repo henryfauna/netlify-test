@@ -1,10 +1,10 @@
-import ButtonSecondary from "./ButtonSecondary";
+import Button from "./ButtonDanger";
 
 const ListItem = ({ text, onDelete }) => {
   return (
-    <div class="border-b border-purple-100 py-2 w-full flex flex-row justify-between">
+    <div class="border-b border-purple-100 p-2 w-full flex flex-row justify-between">
       <div class="text-lg font-medium">{text}</div>
-      <ButtonSecondary text="Delete" onClick={() => onDelete()} />
+      <Button text="delete" onClick={() => onDelete()} />
     </div>
   );
 };
