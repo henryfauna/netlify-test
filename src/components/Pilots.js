@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 
+import Button from "./common/ButtonPrimary";
 import Loading from "./common/Loading";
 import ListItem from "./common/ListItem";
 import AddPilot from "./modals/AddPilot";
-import ButtonPrimary from "./common/ButtonPrimary";
 
 import { getPilots, deletePilot } from "../fauna/queries";
 
@@ -58,8 +58,8 @@ const Pilots = () => {
       )}
       <div class="flex flex-row items-center justify-between mb-4">
         <div class="mr-2 font-bold text-2xl">Pilots</div>
-        <ButtonPrimary
-          text="Add Pilot"
+        <Button
+          text="add pilot"
           onClick={() => {
             setAddingPilot(true);
           }}
