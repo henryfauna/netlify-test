@@ -48,7 +48,7 @@ const Pilots = () => {
   };
 
   return (
-    <div class="container p-4 flex flex-col">
+    <div id="pilots" class="container p-4 flex flex-col">
       {addingPilot && (
         <AddPilot
           onClose={() => {

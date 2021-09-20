@@ -29,7 +29,7 @@ const Spaceships = () => {
       return <Loading />;
     } else if (spaceships) {
       return (
-        <div>
+        <div id="spaceship-list">
           {spaceships.map((s, i) => {
             return (
               <ListItem
@@ -48,7 +48,7 @@ const Spaceships = () => {
   };
 
   return (
-    <div class="container p-4 flex flex-col">
+    <div id="spaceships" class="container p-4 flex flex-col">
       {addingSpaceship && (
         <AddSpaceship onClose={() => setAddingSpaceship(false)} />
       )}
